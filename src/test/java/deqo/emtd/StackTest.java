@@ -24,7 +24,7 @@ public class StackTest {
 
     @Test
     public void testPush() throws Exception {
-        Item e = new Item(1,"tello");
+        Item e = new Item(1,"tella");
         s.push(e);
         assertEquals("pile contient 1 element",1,s.getSize());
     }
