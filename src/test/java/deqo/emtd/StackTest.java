@@ -30,6 +30,15 @@ public class StackTest {
     }
 
     @Test
+    public void testPushIncreaseSize() throws Exception {
+        Item e = new Item(1,"telly");
+        s.push(e);
+        e = new Item(2,"Kikala");
+        s.push(e);
+        assertEquals("pile contient 1 element",2,s.getSize());
+    }
+
+    @Test
     public void pileNonVide() throws Exception {
         Item e = new Item(1,"telly");
         s.push(e);
@@ -40,16 +49,30 @@ public class StackTest {
     public void testPeek() throws Exception {
         Item e = new Item(1,"telly");
         s.push(e);
+        e = new Item(2,"Kikala");
+        s.push(e);
         Item b = s.peek();
-        assertEquals("meme entier",1,b.getNb());
+        assertEquals("meme entier",2,b.getNb());
     }
 
     @Test
     public void testPop() throws Exception {
         Item e = new Item(1,"telly");
         s.push(e);
+        e = new Item(2,"Kikala");
+        s.push(e);
         Item b = s.pop();
-        assertEquals("meme entier 2",1,e.getNb());
+        assertEquals("meme entier 2", 2, b.getNb());
+    }
+
+    @Test
+    public void testPopDecreseSize() throws Exception {
+        Item e = new Item(1,"telly");
+        s.push(e);
+        e = new Item(2,"Kikala");
+        s.push(e);
+        Item b = s.pop();
+        assertEquals("nouvelle taille",1,s.getSize());
     }
 
     @Test(expected = EmptyStackException.class)
