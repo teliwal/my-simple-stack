@@ -1,14 +1,18 @@
 package deqo.emtd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 21409231 on 03/11/2016.
  */
 public class Stack implements SimpleStack{
     private int indice;
-    private Item pile [];
+    private List<Item> pile;
 
     public Stack() {
         indice = 0;
+        pile = new ArrayList<>();
     }
 
     @Override
@@ -23,7 +27,7 @@ public class Stack implements SimpleStack{
 
     @Override
     public void push(Item item) {
-        pile[indice] = item;
+        pile.add(item);
         indice ++;
     }
 
@@ -33,7 +37,7 @@ public class Stack implements SimpleStack{
             throw new EmptyStackException("pile vide");
         else {
             int i=indice-1;
-            Item e = pile[i];
+            Item e = pile.get(i);
             return e;
         }
     }
@@ -44,7 +48,7 @@ public class Stack implements SimpleStack{
             throw new EmptyStackException("pile vide");
         else {
             indice--;
-            Item e = pile[indice];
+            Item e = pile.remove(indice);
             return e;
         }
     }

@@ -10,4 +10,9 @@ public class Item {
         this.nb = nb;
         this.nom = nom;
     }
+
+    public int getNb() {
+        return nb;
+    }
+
 }
